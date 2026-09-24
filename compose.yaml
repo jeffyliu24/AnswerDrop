@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      ANSWERDROP_BASE_URL: ${ANSWERDROP_BASE_URL:-http://localhost:3000}
+      ANSWERDROP_PUBLISH_TOKEN: ${ANSWERDROP_PUBLISH_TOKEN:-}
+    volumes:
+      - answerdrop-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  answerdrop-data:
