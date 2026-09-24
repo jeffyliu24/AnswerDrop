@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Turn AI-generated Markdown into safe, shareable pages."
+    />
+    <title>AnswerDrop — From answer to artifact</title>
+    <link rel="stylesheet" href="/reader.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-brand"><span class="brand-mark">◆</span> AnswerDrop</div>
+      <div class="header-note">PRIVATE REVIEW · PUBLIC READING</div>
+    </header>
+    <main>
+      <section class="intro">
+        <div class="eyebrow">AI OUTPUT → READABLE ARTIFACT</div>
+        <h1>Give a great answer<br /><em>a better landing.</em></h1>
+        <p>
+          Paste Markdown, inspect possible secrets, and publish a clean page
+          anyone can read. No account needed for your readers.
+        </p>
+      </section>
+      <section class="workspace" aria-label="Publish Markdown">
+        <div class="input-heading">
+          <div>
+            <div class="step">01 / INPUT</div>
+            <h2>Your Markdown</h2>
+          </div>
+          <label class="upload"
+            ><input
+              id="upload"
+              type="file"
+              accept=".md,text/markdown,text/plain"
+            />Upload .md</label
+          >
+        </div>
+        <textarea
+          id="markdown"
+          spellcheck="false"
+          placeholder="# Paste an answer here…&#10;&#10;Headings, tables, code, task lists, and math are welcome."
+        ></textarea>
+        <div class="input-foot">
+          <span id="input-count">0 characters</span
+          ><button id="preview-button" type="button" class="text-button">
+            Refresh preview ↗
+          </button>
+        </div>
+      </section>
+      <section class="inspection" aria-label="Preview and privacy review">
+        <div class="panel preview-panel">
+          <div class="panel-top">
+            <div>
+              <div class="step">02 / PREVIEW</div>
+              <h2>Reader view</h2>
+            </div>
+            <span class="status-pill">SELF-CONTAINED</span>
+          </div>
+          <div id="preview" class="prose preview-content">
+            <div class="empty-state">
+              Your rendered document will appear here.
+            </div>
+          </div>
+        </div>
+        <div class="panel privacy-panel">
+          <div class="panel-top">
+            <div>
+              <div class="step">03 / PRIVACY</div>
+              <h2>Review findings</h2>
+            </div>
+            <span id="finding-count" class="count-badge">0</span>
+          </div>
+          <p class="privacy-note">
+            Potential sensitive information detected by rules. Review each item
+            before publishing. The scanner can miss secrets.
+          </p>
+          <div id="findings" class="findings">
+            <div class="empty-state">Paste Markdown to run the scan.</div>
+          </div>
+        </div>
+      </section>
+      <section class="publish-section">
+        <div class="publish-settings">
+          <label
+            >Expires
+            <select id="expires">
+              <option value="">Never</option>
+              <option value="1h">1 hour</option>
+              <option value="1d">1 day</option>
+              <option value="7d">7 days</option>
+              <option value="30d">30 days</option>
+            </select></label
+          ><label
+            >Max views
+            <select id="max-views">
+              <option value="">Unlimited</option>
+              <option value="1">1 view</option>
+              <option value="10">10 views</option>
+              <option value="100">100 views</option>
+            </select></label
+          ><label class="localize-toggle"
+            ><input type="checkbox" id="localize" checked /> Localize remote
+            images</label
+          >
+        </div>
+        <div class="publish-actions">
+          <label class="token-field"
+            >Publisher token
+            <input
+              id="token"
+              type="password"
+              autocomplete="off"
+              placeholder="From server startup log" /></label
+          ><button id="publish" class="primary-button" type="button">
+            Publish answer <span>↗</span>
+          </button>
+        </div>
+        <p id="message" role="status" aria-live="polite"></p>
+      </section>
+      <section id="result" class="result" hidden>
+        <div class="result-icon">✓</div>
+        <div>
+          <div class="step">PUBLISHED</div>
+          <h2>Your answer is ready to share.</h2>
+          <a
+            id="share-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
+          <div class="result-actions">
+            <button id="copy-link" type="button">Copy link</button
+            ><button id="download-html" type="button">
+              Download offline HTML
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="app-footer">
+      <span>AnswerDrop · Open source · Self-hostable</span
+      ><span>Scan · Localize · Render · Share</span>
+    </footer>
+  </body>
+</html>

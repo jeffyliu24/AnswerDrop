@@ -1,0 +1,32 @@
+{
+  "name": "answerdrop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Privacy-aware publishing for AI-generated Markdown",
+  "bin": {
+    "answerdrop": "./dist/src/cli.js"
+  },
+  "engines": {
+    "node": ">=26.0.0"
+  },
+  "scripts": {
+    "build": "tsc && node scripts/copy-assets.mjs",
+    "start": "node dist/src/server/main.js",
+    "dev": "npm run build && npm start",
+    "lint": "prettier --check .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test dist/tests/*.test.js"
+  },
+  "dependencies": {
+    "katex": "0.16.43",
+    "markdown-it": "14.2.0"
+  },
+  "devDependencies": {
+    "@types/katex": "0.16.8",
+    "@types/node": "25.5.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  }
+}
