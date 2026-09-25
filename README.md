@@ -62,11 +62,11 @@ The publisher token appears in the server log. A local install can use the token
 ```sh
 npm link
 answerdrop preview examples/ai-answer.md
-answerdrop publish examples/ai-answer.md
+answerdrop publish examples/quickstart-zh.md
 answerdrop publish report.md --expire 7d --max-views 20 --localize
 ```
 
-`preview` writes a private temporary HTML file and prints its path. Delete it when finished. `publish` prints finding categories and prompts before publishing if potential sensitive content is found. In a non-interactive script, review first and pass `--acknowledge` explicitly. The example document contains deliberately fake scanner examples. Its image URL is illustrative; omit `--localize` or replace it with a reachable public image.
+`preview` writes a private temporary HTML file and prints its path. Delete it when finished. `publish` prints finding categories and prompts before publishing if potential sensitive content is found. In a non-interactive script, review first and pass `--acknowledge` explicitly. `examples/quickstart-zh.md` is a ready-to-publish sample. `examples/ai-answer.md` contains deliberately fake scanner examples; its image URL is illustrative, so omit `--localize` or replace it with a reachable public image.
 
 ### Expiring links and view limits
 
