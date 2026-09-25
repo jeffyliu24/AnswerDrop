@@ -38,6 +38,8 @@ Resource localizer
 ## Quick start with Docker
 
 ```sh
+git clone https://github.com/jeffyliu24/AnswerDrop.git answerdrop
+cd answerdrop
 docker compose up --build
 ```
 
