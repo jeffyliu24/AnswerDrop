@@ -3,5 +3,6 @@ dist
 data
 .git
 .env
+public.env
 playwright-report
 test-results

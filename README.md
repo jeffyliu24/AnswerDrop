@@ -49,6 +49,8 @@ Open <http://localhost:3000>. On first start, AnswerDrop creates a publisher tok
 
 Docker binds to `127.0.0.1:3000` and stores data in the `answerdrop-data` volume. For a public deployment, put it behind an HTTPS reverse proxy and set `ANSWERDROP_BASE_URL=https://your-domain.example`. Set `ANSWERDROP_PUBLISH_TOKEN` from a secret manager if you want to manage or rotate the publisher token yourself. The token must have at least 24 characters. Never put it in a URL.
 
+For a public Linux server, use the [public deployment guide](docs/public-deployment.md) and `compose.public.yaml`. It includes HTTPS and persistent storage.
+
 ## Local development and CLI
 
 Requires Node.js 26 and npm.
