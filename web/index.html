@@ -126,13 +126,17 @@
         <div class="result-icon">✓</div>
         <div>
           <div class="step">PUBLISHED</div>
-          <h2>Your answer is ready to share.</h2>
+          <h2 id="result-heading">Your answer is ready to share.</h2>
           <a
             id="share-link"
             href="#"
             target="_blank"
             rel="noopener noreferrer"
           ></a>
+          <p id="local-link-warning" class="local-link-warning" hidden>
+            This link works only on this computer. Deploy AnswerDrop at a public
+            HTTPS address before sharing it with others.
+          </p>
           <div class="result-actions">
             <button id="copy-link" type="button">Copy link</button
             ><button id="download-html" type="button">

@@ -410,6 +410,17 @@ main {
   color: #315bd5;
   font-size: 14px;
 }
+.local-link-warning {
+  max-width: 560px;
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #efd7b7;
+  border-radius: 6px;
+  background: #fff8ed;
+  color: #805622;
+  font-size: 13px;
+  line-height: 1.5;
+}
 .result-actions {
   display: flex;
   gap: 8px;

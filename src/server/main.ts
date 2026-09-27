@@ -283,6 +283,8 @@ if (
   const app = createAnswerDropServer(config);
   app.server.listen(config.port, config.host, () => {
     console.log(`AnswerDrop listening on ${config.host}:${config.port}`);
-    console.log(`Publisher token: ${app.token}`);
+    if (config.publishToken)
+      console.log("Publisher token configured through the environment.");
+    else console.log(`Publisher token: ${app.token}`);
   });
 }

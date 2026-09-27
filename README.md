@@ -45,6 +45,8 @@ docker compose up --build
 
 Open <http://localhost:3000>. On first start, AnswerDrop creates a publisher token and prints it in `docker compose logs app`. Paste that token into the UI once per browser session. Paste Markdown or upload a `.md` file, review each finding using **Redact** or **Ignore**, and publish. Open the resulting `/s/<slug>` URL in another browser or private window; readers do not need the token.
 
+**A `localhost` link works only on the same computer.** To send links to other devices, deploy AnswerDrop on a publicly reachable HTTPS host and set `ANSWERDROP_BASE_URL` to that host. The offline HTML download can also be hosted separately as a static file.
+
 Docker binds to `127.0.0.1:3000` and stores data in the `answerdrop-data` volume. For a public deployment, put it behind an HTTPS reverse proxy and set `ANSWERDROP_BASE_URL=https://your-domain.example`. Set `ANSWERDROP_PUBLISH_TOKEN` from a secret manager if you want to manage or rotate the publisher token yourself. The token must have at least 24 characters. Never put it in a URL.
 
 ## Local development and CLI

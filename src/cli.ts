@@ -121,6 +121,14 @@ async function main(): Promise<void> {
   if (!response.ok || !result.url)
     throw new Error(result.error ?? `Server returned ${response.status}`);
   console.log(`Published: ${result.url}`);
+  if (
+    ["localhost", "127.0.0.1", "0.0.0.0", "[::1]"].includes(
+      new URL(result.url).hostname,
+    )
+  )
+    console.log(
+      "Local link only. Deploy AnswerDrop at a public HTTPS address before sharing it with others.",
+    );
 }
 
 main().catch((error) => {

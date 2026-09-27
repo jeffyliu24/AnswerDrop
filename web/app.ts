@@ -19,6 +19,17 @@ interface Publication {
   localizedImages: number;
 }
 
+function isLocalOnlyUrl(value: string): boolean {
+  const host = new URL(value).hostname.toLowerCase();
+  return (
+    host === "localhost" ||
+    host.endsWith(".localhost") ||
+    host === "127.0.0.1" ||
+    host === "0.0.0.0" ||
+    host === "[::1]"
+  );
+}
+
 const get = <T extends HTMLElement>(id: string): T =>
   document.getElementById(id) as T;
 const markdownInput = get<HTMLTextAreaElement>("markdown");
@@ -214,6 +225,14 @@ get<HTMLButtonElement>("publish").addEventListener("click", async () => {
     const link = get<HTMLAnchorElement>("share-link");
     link.href = publication.url;
     link.textContent = publication.url;
+    const localOnly = isLocalOnlyUrl(publication.url);
+    get<HTMLParagraphElement>("local-link-warning").hidden = !localOnly;
+    get<HTMLHeadingElement>("result-heading").textContent = localOnly
+      ? "Your local page is ready."
+      : "Your answer is ready to share.";
+    get<HTMLButtonElement>("copy-link").textContent = localOnly
+      ? "Copy local link"
+      : "Copy link";
     get<HTMLElement>("result").hidden = false;
     setMessage(
       publication.localizedImages
